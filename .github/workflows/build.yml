@@ -38,7 +38,9 @@ jobs:
           flutter doctor --android-licenses || true
 
       - name: Build APK
-        run: flet build apk diet.py --no-rich-output || true
+        run: |
+          cd $GITHUB_WORKSPACE
+          flet build apk --no-rich-output
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
